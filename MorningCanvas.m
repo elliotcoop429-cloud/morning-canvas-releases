@@ -13,6 +13,7 @@
 static NSString *const CanvasBaseURL = @"https://pinecrest.instructure.com";
 static NSString *const KeychainService = @"com.elliot.morningcanvas";
 static char OriginalTextStyleKey;
+#import "GuiLayout.h"
 
 @interface ConfettiView : NSView
 @end
@@ -244,52 +245,61 @@ static char OriginalTextStyleKey;
     [self applyTheme];
     [self configureBackgroundMedia];
 
-    [view addSubview:[self label:@"Morning Canvas" frame:NSMakeRect(28, 592, 324, 40) size:30 weight:NSFontWeightBold color:NSColor.labelColor]];
+    NSTextField *dashboardTitle = [self label:@"Morning Canvas" frame:NSMakeRect(28, 592, 324, 40) size:30 weight:NSFontWeightBold color:NSColor.labelColor];
+    [view addSubview:dashboardTitle];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterFullStyle;
-    [view addSubview:[self label:[dateFormatter stringFromDate:NSDate.date] frame:NSMakeRect(30, 566, 420, 22) size:13 weight:NSFontWeightRegular color:NSColor.secondaryLabelColor]];
+    NSTextField *dashboardDate = [self label:[dateFormatter stringFromDate:NSDate.date] frame:NSMakeRect(30, 566, 420, 22) size:13 weight:NSFontWeightRegular color:NSColor.secondaryLabelColor];
+    [view addSubview:dashboardDate];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(360, 590, 72, 34) radius:8]];
+    NSView *shareGlass = [self glassViewWithFrame:NSMakeRect(360, 590, 72, 34) radius:8];
+    [view addSubview:shareGlass];
     NSButton *shareButton = [NSButton buttonWithTitle:@"Share" target:self action:@selector(shareApp:)];
     shareButton.frame = NSMakeRect(364, 593, 64, 28);
     shareButton.bordered = NO;
     shareButton.toolTip = @"Share Morning Canvas with a friend";
     [view addSubview:shareButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(438, 590, 72, 34) radius:8]];
+    NSView *updateGlass = [self glassViewWithFrame:NSMakeRect(438, 590, 72, 34) radius:8];
+    [view addSubview:updateGlass];
     NSButton *updateButton = [NSButton buttonWithTitle:@"Update" target:self action:@selector(checkForUpdates:)];
     updateButton.frame = NSMakeRect(442, 593, 64, 28);
     updateButton.bordered = NO;
     updateButton.toolTip = @"Check for a Morning Canvas update";
     [view addSubview:updateButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(516, 590, 120, 34) radius:8]];
+    NSView *connectGlass = [self glassViewWithFrame:NSMakeRect(516, 590, 120, 34) radius:8];
+    [view addSubview:connectGlass];
     NSButton *connectButton = [NSButton buttonWithTitle:@"Connect Canvas" target:self action:@selector(connectCanvas:)];
     connectButton.frame = NSMakeRect(520, 593, 112, 28);
     connectButton.bordered = NO;
     [view addSubview:connectButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(642, 590, 112, 34) radius:8]];
+    NSView *calendarGlass = [self glassViewWithFrame:NSMakeRect(642, 590, 112, 34) radius:8];
+    [view addSubview:calendarGlass];
     NSButton *calendarButton = [NSButton buttonWithTitle:@"Calendar URL" target:self action:@selector(connectCalendar:)];
     calendarButton.frame = NSMakeRect(646, 593, 104, 28);
     calendarButton.bordered = NO;
     calendarButton.toolTip = @"Add a Google Calendar link";
     [view addSubview:calendarButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(760, 590, 98, 34) radius:8]];
+    NSView *appearanceGlass = [self glassViewWithFrame:NSMakeRect(760, 590, 98, 34) radius:8];
+    [view addSubview:appearanceGlass];
     NSButton *appearanceButton = [NSButton buttonWithTitle:@"Appearance" target:self action:@selector(changeAppearance:)];
     appearanceButton.frame = NSMakeRect(764, 593, 90, 28);
     appearanceButton.bordered = NO;
     [view addSubview:appearanceButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(864, 590, 72, 34) radius:8]];
+    NSView *refreshGlass = [self glassViewWithFrame:NSMakeRect(864, 590, 72, 34) radius:8];
+    [view addSubview:refreshGlass];
     NSButton *refreshButton = [NSButton buttonWithTitle:@"Refresh" target:self action:@selector(refresh:)];
     refreshButton.frame = NSMakeRect(868, 593, 64, 28);
     refreshButton.bordered = NO;
     [view addSubview:refreshButton];
 
-    [view addSubview:[self glassViewWithFrame:NSMakeRect(938, 590, 98, 34) radius:8]];
+    NSView *openGlass = [self glassViewWithFrame:NSMakeRect(938, 590, 98, 34) radius:8];
+    [view addSubview:openGlass];
     NSButton *openButton = [NSButton buttonWithTitle:@"Open Canvas" target:self action:@selector(openCanvas:)];
     openButton.frame = NSMakeRect(942, 593, 90, 28);
     openButton.bordered = NO;
@@ -298,7 +308,8 @@ static char OriginalTextStyleKey;
     self.statusLabel = [self label:@"Not connected" frame:NSMakeRect(30, 536, 980, 22) size:12 weight:NSFontWeightRegular color:NSColor.secondaryLabelColor];
     [view addSubview:self.statusLabel];
 
-    [view addSubview:[self label:@"CLASSES" frame:NSMakeRect(30, 500, 190, 20) size:12 weight:NSFontWeightBold color:NSColor.secondaryLabelColor]];
+    NSTextField *classesTitle = [self label:@"CLASSES" frame:NSMakeRect(30, 500, 190, 20) size:12 weight:NSFontWeightBold color:NSColor.secondaryLabelColor];
+    [view addSubview:classesTitle];
     self.classScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(24, 82, 220, 408)];
     self.classScrollView.hasVerticalScroller = YES;
     self.classScrollView.drawsBackground = NO;
@@ -331,10 +342,28 @@ static char OriginalTextStyleKey;
     self.contentScrollView.documentView = self.contentView;
     [view addSubview:self.contentScrollView];
 
-    [view addSubview:[self label:@"Canvas data is read-only and the token is stored privately for your Mac account." frame:NSMakeRect(30, 27, 700, 20) size:11 weight:NSFontWeightRegular color:NSColor.secondaryLabelColor]];
+    NSTextField *dashboardFooter = [self label:@"Canvas data is read-only and the token is stored privately for your Mac account." frame:NSMakeRect(30, 27, 700, 20) size:11 weight:NSFontWeightRegular color:NSColor.secondaryLabelColor];
+    [view addSubview:dashboardFooter];
     NSButton *quitButton = [NSButton buttonWithTitle:@"Quit" target:NSApp action:@selector(terminate:)];
     quitButton.frame = NSMakeRect(960, 20, 64, 30);
     [view addSubview:quitButton];
+
+    // The designer controls presentation only; selectors and Canvas data stay in native code.
+    NSDictionary *layoutViews = @{
+        @"title":@[dashboardTitle], @"date":@[dashboardDate], @"status":@[self.statusLabel],
+        @"classes-title":@[classesTitle], @"classes":@[self.classScrollView],
+        @"vertical-rule":@[verticalLine], @"horizontal-rule":@[line],
+        @"tabs":@[self.mainTabGlass,self.tabs], @"content":@[self.contentScrollView],
+        @"footer":@[dashboardFooter], @"quit":@[quitButton],
+        @"share":@[shareGlass,shareButton], @"update":@[updateGlass,updateButton],
+        @"connect":@[connectGlass,connectButton], @"calendar":@[calendarGlass,calendarButton],
+        @"appearance":@[appearanceGlass,appearanceButton], @"refresh":@[refreshGlass,refreshButton],
+        @"open":@[openGlass,openButton]
+    };
+    NSURL *layoutURL = [NSBundle.mainBundle URLForResource:@"gui-layout" withExtension:@"json"];
+    NSData *layoutData = layoutURL ? [NSData dataWithContentsOfURL:layoutURL] : nil;
+    NSDictionary *layout = layoutData ? [NSJSONSerialization JSONObjectWithData:layoutData options:0 error:nil] : nil;
+    MCApplyLayout(layout, view, layoutViews);
 
     [self renderClassList];
     [self showSelectedTab];

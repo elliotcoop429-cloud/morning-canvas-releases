@@ -21,6 +21,10 @@
     "8000": {
       "label": "Loading animation only",
       "onAutoForward": "notify"
+    },
+    "8001": {
+      "label": "Morning Canvas Studio",
+      "onAutoForward": "openBrowser"
     }
   },
   "otherPortsAttributes": {

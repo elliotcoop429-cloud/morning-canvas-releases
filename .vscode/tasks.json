@@ -2,6 +2,18 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Open Morning Canvas Studio",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "tools/designer.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
       "label": "Preview loading animation only",
       "type": "process",
       "command": "python3",
