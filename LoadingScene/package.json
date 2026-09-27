@@ -1,0 +1,9 @@
+{
+  "name": "morning-canvas-loading-scene",
+  "private": true,
+  "scripts": {
+    "build": "esbuild scene.js --bundle --minify --format=iife --outfile=../Resources/Loading/scene.js"
+  },
+  "dependencies": { "three": "0.180.0" },
+  "devDependencies": { "esbuild": "0.25.9", "@playwright/test": "1.55.0" }
+}

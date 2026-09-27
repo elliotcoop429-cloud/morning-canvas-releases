@@ -1,0 +1,9 @@
+{
+  "liveshare.guestApprovalRequired": true,
+  "liveshare.anonymousGuestApproval": "reject",
+  "liveshare.shareExternalFiles": false,
+  "liveshare.autoShareServers": false,
+  "liveshare.autoShareTerminals": false,
+  "liveshare.allowGuestDebugControl": false,
+  "liveshare.languages.allowGuestCommandControl": false
+}
