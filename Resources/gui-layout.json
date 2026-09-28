@@ -150,8 +150,8 @@
       "id": "classes",
       "name": "Class list",
       "kind": "classes",
-      "x": 24,
-      "y": 170,
+      "x": 20,
+      "y": 168,
       "width": 220,
       "height": 408,
       "text": "",
@@ -234,6 +234,19 @@
       "height": 30,
       "text": "Quit",
       "fontSize": 13,
+      "color": "",
+      "visible": true
+    },
+    {
+      "id": "custom_1473e98b-f8cf-41ba-9143-5f83e2a49da9",
+      "name": "Text label",
+      "kind": "text",
+      "x": 320,
+      "y": 560,
+      "width": 260,
+      "height": 36,
+      "text": "This is a test.",
+      "fontSize": 18,
       "color": "",
       "visible": true
     }
