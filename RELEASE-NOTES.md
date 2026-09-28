@@ -1,19 +1,6 @@
 # Morning Canvas 7.7
 
-- Optional confetti when an assignment is checked off. Turn it on or off in Appearance > Theme. Reduce Motion is respected.
-- Expand a class in Grades to see its individual assignments and weights.
-- Choose text and link colors in Appearance > Text, or turn custom colors off to restore the theme defaults.
-- Tests and quizzes no longer appear in To-do.
-- New Weekly Overview tab discovers each class's overview link from its Canvas homepage and opens it in your browser using your existing school sign-in.
-
-Includes the improvements from 7.6:
-
-- Calendar refreshes replace stale events instead of stacking them, and automatically roll forward each Monday.
-- Choose None, Fade, or Slide for photo transitions in Appearance > Playback. Animations respect Reduce Motion.
-- Grades now lists individual graded assignments with their scores and links to Canvas.
-- Personal averages use points-based weights by default: a 20-point assignment counts twice as much as a 10-point assignment. Use Weight beside an assignment to customize its contribution or restore its points-based weight.
-- Personal weights never change Canvas's official grades. Excused and excluded assignments remain visible but do not count in the personal average.
-- Checked-off work stays hidden across weeks and restarts. Submitted shows the current week without deleting completion history.
+- This is a test
 
 Older versions may already have discarded past completion records. Those items
 may need to be checked off once more; new completions are retained.
