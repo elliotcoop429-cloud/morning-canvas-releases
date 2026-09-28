@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json.schemastore.org/vsls",
+  "gitignore": "exclude",
+  "excludeFiles": [
+    ".git",
+    ".vscode",
+    ".env",
+    ".env.*",
+    "**/.env",
+    "**/.env.*",
+    "canvas-token",
+    "**/canvas-token",
+    "calendar-url",
+    "**/calendar-url",
+    "*.key",
+    "*.pem",
+    "*.p12",
+    "*.pfx",
+    "*.keychain",
+    "*.keychain-db",
+    "secrets",
+    "credentials.json"
+  ]
+}

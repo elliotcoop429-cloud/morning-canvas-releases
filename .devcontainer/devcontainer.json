@@ -1,0 +1,33 @@
+{
+  "name": "Morning Canvas \u2014 collaborative source editing",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vsliveshare.vsliveshare"
+      ],
+      "settings": {
+        "liveshare.guestApprovalRequired": true,
+        "liveshare.anonymousGuestApproval": "reject",
+        "liveshare.shareExternalFiles": false,
+        "liveshare.autoShareServers": false,
+        "liveshare.autoShareTerminals": false,
+        "liveshare.allowGuestDebugControl": false,
+        "liveshare.languages.allowGuestCommandControl": false
+      }
+    }
+  },
+  "portsAttributes": {
+    "8000": {
+      "label": "Loading animation only",
+      "onAutoForward": "notify"
+    },
+    "8001": {
+      "label": "Morning Canvas Studio",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  }
+}

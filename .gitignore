@@ -1,0 +1,25 @@
+# Credentials and personal app data (never share or commit)
+.env
+.env.*
+!.env.example
+canvas-token
+calendar-url
+secrets/
+credentials.json
+*.key
+*.pem
+*.p12
+*.pfx
+*.keychain
+*.keychain-db
+# Generated and local files
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+build/
+outputs/
+work/
+*.app/
+*.zip
+*.dmg

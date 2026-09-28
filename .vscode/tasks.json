@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open Morning Canvas Studio",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "tools/designer.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Preview loading animation only",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "-m",
+        "http.server",
+        "8000",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "Resources/Loading"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Build native app (Mac only)",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "-c",
+        "if [ \"$(uname -s)\" != Darwin ]; then echo \"The full app requires macOS. Use a Mac to build and preview the main GUI.\"; exit 1; fi; bash build.sh"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
