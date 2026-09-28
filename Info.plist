@@ -17,9 +17,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>7.7</string>
+    <string>7.8</string>
     <key>CFBundleVersion</key>
-    <string>49</string>
+    <string>50</string>
     <key>SUFeedURL</key>
     <string>https://github.com/elliotcoop429-cloud/morning-canvas-releases/releases/latest/download/appcast.xml</string>
     <key>SUPublicEDKey</key>
